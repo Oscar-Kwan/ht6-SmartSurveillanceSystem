@@ -1,0 +1,378 @@
+[
+    {
+        "id": "18fe4a96.c9d8ad",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "401c18ef.dc84b8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "1b3e3572.7c09ab",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    },
+    {
+        "id": "d804b546.86287",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "1b3e3572.7c09ab",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "15d9a85d.1724",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    },
+    {
+        "id": "69d125be.02c0dc",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "104.238.164.118",
+        "port": "8883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "1c2b84.6ebd5c7d",
+        "type": "inject",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "topic": "",
+        "payload": "H",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "dd2d22af.93c4e8"
+            ]
+        ]
+    },
+    {
+        "id": "a683f09f.d9309",
+        "type": "inject",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "topic": "",
+        "payload": "L",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "dd2d22af.93c4e8"
+            ]
+        ]
+    },
+    {
+        "id": "dd2d22af.93c4e8",
+        "type": "serial out",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "serial": "15d9a85d.1724",
+        "x": 820,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "225bde2b.9b7402",
+        "type": "mqtt in",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "topic": "person",
+        "qos": "0",
+        "broker": "69d125be.02c0dc",
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "ef700e65.999398",
+                "636db166.adad3"
+            ]
+        ]
+    },
+    {
+        "id": "c3a48777.05f898",
+        "type": "debug",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 830,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7e231571.ef5d5c",
+        "type": "mqtt out",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "topic": "sms",
+        "qos": "",
+        "retain": "",
+        "broker": "69d125be.02c0dc",
+        "x": 770,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e6560151.c000c",
+        "type": "function",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "func": "msg.payload = \"Emergency Alert! There is a vechicle dangerously driving on the sidewalk, please take cover inside the nearest building!\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "7e231571.ef5d5c",
+                "c3a48777.05f898"
+            ]
+        ]
+    },
+    {
+        "id": "ef700e65.999398",
+        "type": "function",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "func": "var input = msg.payload;\nif(input==\"true\"){\n    msg.payload = \"H\";\n}\nif (input==\"false\"){\n    msg.payload = \"L\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "d050737b.c7d518"
+            ]
+        ]
+    },
+    {
+        "id": "636db166.adad3",
+        "type": "trigger",
+        "z": "18fe4a96.c9d8ad",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "nul",
+        "duration": "30",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "e6560151.c000c"
+            ]
+        ]
+    },
+    {
+        "id": "d050737b.c7d518",
+        "type": "trigger",
+        "z": "18fe4a96.c9d8ad",
+        "op1": "H",
+        "op2": "L",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "dd2d22af.93c4e8"
+            ]
+        ]
+    },
+    {
+        "id": "a446d112.cdfb98",
+        "type": "inject",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 460,
+        "y": 60,
+        "wires": [
+            [
+                "e6560151.c000c"
+            ]
+        ]
+    },
+    {
+        "id": "d964a64f.407bb",
+        "type": "function",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "func": "msg.reset=0\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "636db166.adad3"
+            ]
+        ]
+    },
+    {
+        "id": "8e3baed9.09a1d8",
+        "type": "inject",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 40,
+        "wires": [
+            [
+                "d964a64f.407bb"
+            ]
+        ]
+    }
+]
