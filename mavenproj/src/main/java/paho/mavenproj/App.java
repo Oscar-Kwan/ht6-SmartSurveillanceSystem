@@ -1,14 +1,6 @@
 package paho.mavenproj;
 /* 
- * Copyright (c) 2009, 2012 IBM Corp.
- *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    Dave Locke - initial API and implementation and/or initial documentation
+ * Contributors: Timothy Wang
  */
 
 import java.io.BufferedReader;
@@ -62,7 +54,7 @@ public class App implements MqttCallback {
 		int qos 			= 2;
 		String broker 		= "104.238.164.118";
 		int port 			= 8883;
-		String clientId 	= "H";
+		String clientId 	= "B";
 		String subTopic		= "Sample/#";
 		String pubTopic 	= "Sample/Java/v3";
 		boolean cleanSession = true;			// Non durable subscriptions 
@@ -339,7 +331,6 @@ public class App implements MqttCallback {
 		// The getPendingTokens method will provide tokens for any messages
 		// that are still to be delivered.
 	}
-
     /**
      * @see MqttCallback#messageArrived(String, MqttMessage)
      */
@@ -347,7 +338,7 @@ public class App implements MqttCallback {
 		// Called when a message arrives from the server that matches any
 		// subscription made by the client
         try {
-            Runtime.getRuntime().exec("cmd /c start cmd.exe /K \"lib messagebird.sms.create --originator 14502335958 --recipient 14168333886 --body " + new String(message.getPayload()));
+        		Runtime.getRuntime().exec("cmd /c start cmd.exe /K \"lib messagebird.sms.create --originator 14502335958 --recipient 14168333886 --body " + new String(message.getPayload()));
            }
            catch (Exception e) {
                System.out.println("Reject");
