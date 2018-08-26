@@ -7,148 +7,6 @@
         "info": ""
     },
     {
-        "id": "401c18ef.dc84b8",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-light",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#0094ce",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
-        }
-    },
-    {
-        "id": "1b3e3572.7c09ab",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Home",
-        "icon": "dashboard"
-    },
-    {
-        "id": "d804b546.86287",
-        "type": "ui_group",
-        "z": "",
-        "name": "Default",
-        "tab": "1b3e3572.7c09ab",
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "15d9a85d.1724",
-        "type": "serial-port",
-        "z": "",
-        "serialport": "/dev/ttyACM0",
-        "serialbaud": "9600",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "newline": "\\n",
-        "bin": "false",
-        "out": "char",
-        "addchar": false
-    },
-    {
-        "id": "69d125be.02c0dc",
-        "type": "mqtt-broker",
-        "z": "",
-        "name": "",
-        "broker": "104.238.164.118",
-        "port": "8883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
-    },
-    {
         "id": "1c2b84.6ebd5c7d",
         "type": "inject",
         "z": "18fe4a96.c9d8ad",
@@ -160,11 +18,12 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 130,
-        "y": 520,
+        "x": 90,
+        "y": 360,
         "wires": [
             [
-                "dd2d22af.93c4e8"
+                "dd2d22af.93c4e8",
+                "636db166.adad3"
             ]
         ]
     },
@@ -180,8 +39,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 130,
-        "y": 480,
+        "x": 90,
+        "y": 400,
         "wires": [
             [
                 "dd2d22af.93c4e8"
@@ -206,12 +65,13 @@
         "topic": "person",
         "qos": "0",
         "broker": "69d125be.02c0dc",
-        "x": 250,
+        "x": 90,
         "y": 200,
         "wires": [
             [
                 "ef700e65.999398",
-                "636db166.adad3"
+                "636db166.adad3",
+                "52b67b3a.ee142c"
             ]
         ]
     },
@@ -267,7 +127,7 @@
         "func": "var input = msg.payload;\nif(input==\"true\"){\n    msg.payload = \"H\";\n}\nif (input==\"false\"){\n    msg.payload = \"L\";\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 410,
+        "x": 270,
         "y": 280,
         "wires": [
             [
@@ -283,13 +143,13 @@
         "op2": "",
         "op1type": "pay",
         "op2type": "nul",
-        "duration": "30",
+        "duration": "0",
         "extend": false,
         "units": "s",
         "reset": "",
         "bytopic": "all",
         "name": "",
-        "x": 430,
+        "x": 440,
         "y": 140,
         "wires": [
             [
@@ -311,7 +171,7 @@
         "reset": "",
         "bytopic": "all",
         "name": "",
-        "x": 560,
+        "x": 420,
         "y": 280,
         "wires": [
             [
@@ -347,8 +207,8 @@
         "func": "msg.reset=0\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 220,
-        "y": 100,
+        "x": 290,
+        "y": 120,
         "wires": [
             [
                 "636db166.adad3"
@@ -361,18 +221,230 @@
         "z": "18fe4a96.c9d8ad",
         "name": "",
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
+        "payload": "false",
+        "payloadType": "str",
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 140,
+        "once": true,
+        "onceDelay": "30",
+        "x": 130,
         "y": 40,
         "wires": [
             [
-                "d964a64f.407bb"
+                "b6a91054.e5abf"
             ]
         ]
+    },
+    {
+        "id": "b6a91054.e5abf",
+        "type": "ui_button",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "group": "d804b546.86287",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset System",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "str",
+        "topic": "",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "d964a64f.407bb",
+                "52b67b3a.ee142c"
+            ]
+        ]
+    },
+    {
+        "id": "4ff98b96.3a5864",
+        "type": "ui_gauge",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "group": "d804b546.86287",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "ON/OFF",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 560,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2ba0922a.e0c58e",
+        "type": "ui_button",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "group": "ac555d10.1d114",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset System",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 80,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa5e5a81.e4a31",
+        "type": "ui_gauge",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "group": "ac555d10.1d114",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "ON/OFF",
+        "label": "",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 500,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "52b67b3a.ee142c",
+        "type": "function",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "func": "var input = msg.payload;\nif (input == \"true\"){\n    msg.payload =1;\n}\nelse if (input == \"false\"){\n    msg.payload=0;\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "4ff98b96.3a5864"
+            ]
+        ]
+    },
+    {
+        "id": "e91b43ad.3df96",
+        "type": "ui_text_input",
+        "z": "18fe4a96.c9d8ad",
+        "name": "",
+        "label": "",
+        "group": "8ddf5416.38c7d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "7e231571.ef5d5c"
+            ]
+        ]
+    },
+    {
+        "id": "15d9a85d.1724",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    },
+    {
+        "id": "69d125be.02c0dc",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "104.238.164.118",
+        "port": "8883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "d804b546.86287",
+        "type": "ui_group",
+        "z": "",
+        "name": "Alarm 1",
+        "tab": "1b3e3572.7c09ab",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ac555d10.1d114",
+        "type": "ui_group",
+        "z": "",
+        "name": "Alarm 2",
+        "tab": "1b3e3572.7c09ab",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8ddf5416.38c7d",
+        "type": "ui_group",
+        "z": "",
+        "name": "Send Message",
+        "tab": "1b3e3572.7c09ab",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1b3e3572.7c09ab",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Smart Surveillance System",
+        "icon": "dashboard"
     }
 ]
