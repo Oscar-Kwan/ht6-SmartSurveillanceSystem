@@ -28,6 +28,19 @@ import PIL.ImageFont as ImageFont
 import six
 import tensorflow as tf
 
+import paho.mqtt.client as mqtt
+
+def on_connect(client, userdata, flags, rc):
+    client.subscribe("$SYS/#")
+
+def on_message(client, userdata, msg):
+    print(msg.topic+" "+str(msg.payload))
+
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect("104.238.164.118", 8883, 60)
 
 _TITLE_LEFT_MARGIN = 10
 _TITLE_TOP_MARGIN = 10
@@ -383,6 +396,9 @@ def visualize_boxes_and_labels_on_image_array(image,
         if not agnostic_mode:
           if classes[i] in category_index.keys():
             class_name = category_index[classes[i]]['name']
+            if class_name == 'person':
+                client.publish('person', 'true', 0, False)
+
           else:
             class_name = 'N/A'
           display_str = '{}: {}%'.format(

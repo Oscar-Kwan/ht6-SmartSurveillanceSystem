@@ -119,12 +119,13 @@ if __name__ == '__main__':
             class_colors = data['class_colors']
             for point, name, color in zip(rec_points, class_names, class_colors):
                 cv2.rectangle(frame, (int(point['xmin'] * args.width), int(point['ymin'] * args.height)),
-                              (int(point['xmax'] * args.width), int(point['ymax'] * args.height)), color, 3)
+                            (int(point['xmax'] * args.width), int(point['ymax'] * args.height)), color, 3)
                 cv2.rectangle(frame, (int(point['xmin'] * args.width), int(point['ymin'] * args.height)),
-                              (int(point['xmin'] * args.width) + len(name[0]) * 6,
-                               int(point['ymin'] * args.height) - 10), color, -1, cv2.LINE_AA)
+                            (int(point['xmin'] * args.width) + len(name[0]) * 6,
+                            int(point['ymin'] * args.height) - 10), color, -1, cv2.LINE_AA)
                 cv2.putText(frame, name[0], (int(point['xmin'] * args.width), int(point['ymin'] * args.height)), font,
                             0.3, (0, 0, 0), 1)
+
             cv2.imshow('Video', frame)
 
         fps.update()
