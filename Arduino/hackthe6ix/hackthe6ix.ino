@@ -10,7 +10,7 @@ void setup() {
 void loop() {
 
     input=Serial.read();
-    if(input =='H') digitalWrite(9,HIGH);
+    if(input =='H') beep();
     else if(input == 'L') digitalWrite(9,LOW);
   }
 
